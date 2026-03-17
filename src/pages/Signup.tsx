@@ -13,7 +13,7 @@ import ScanningOverlay from "@/components/ScanningOverlay";
 import { useAuth } from "@/hooks/use-auth";
 import { useEffect } from "react";
 
-const departments = ["CSE", "IT", "ECE", "EEE", "ME", "CE", "Chemical"];
+
 const courses = ["B.TECH", "M.TECH", "MCS", "MBA"];
 const years = ["1st Year", "2nd Year", "3rd Year", "4th Year"];
 
@@ -34,9 +34,9 @@ const Signup = () => {
     phone: "", rollNumber: "", department: "", year: "", course: "B.TECH",
     // Hackathon
     teamName: "",
-    teamLeadName: "", teamLeadEmail: "", teamLeadRoll: "",
-    member2Name: "", member2Email: "", member2Roll: "",
-    member3Name: "", member3Email: "", member3Roll: ""
+    teamLeadName: "", teamLeadEmail: "", teamLeadPhone: "", teamLeadRoll: "",
+    member2Name: "", member2Email: "", member2Phone: "", member2Roll: "",
+    member3Name: "", member3Email: "", member3Phone: "", member3Roll: ""
   });
 
   useEffect(() => {
@@ -94,12 +94,15 @@ const Signup = () => {
           team_name: form.teamName,
           team_lead_name: form.teamLeadName,
           team_lead_email: form.teamLeadEmail,
+          team_lead_phone: form.teamLeadPhone,
           team_lead_roll: form.teamLeadRoll,
           member2_name: form.member2Name,
           member2_email: form.member2Email,
+          member2_phone: form.member2Phone,
           member2_roll: form.member2Roll,
           member3_name: form.member3Name,
           member3_email: form.member3Email,
+          member3_phone: form.member3Phone,
           member3_roll: form.member3Roll,
           password: form.password // For demo purposes
         }]);
@@ -195,9 +198,15 @@ const Signup = () => {
                       <Input id="teamLeadRoll" value={form.teamLeadRoll} onChange={(e) => update("teamLeadRoll", e.target.value)} className="bg-background border-border mt-1" required />
                     </div>
                   </div>
-                  <div>
-                    <Label htmlFor="teamLeadEmail">Email ID (Linked to Account)</Label>
-                    <Input id="teamLeadEmail" type="email" value={form.teamLeadEmail} readOnly className="bg-muted border-border mt-1 cursor-not-allowed opacity-80" required />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="teamLeadEmail">Email ID (Linked to Account)</Label>
+                      <Input id="teamLeadEmail" type="email" value={form.teamLeadEmail} readOnly className="bg-muted border-border mt-1 cursor-not-allowed opacity-80" required />
+                    </div>
+                    <div>
+                      <Label htmlFor="teamLeadPhone">Phone Number</Label>
+                      <Input id="teamLeadPhone" type="tel" value={form.teamLeadPhone} onChange={(e) => update("teamLeadPhone", e.target.value)} className="bg-background border-border mt-1" required />
+                    </div>
                   </div>
                 </div>
 
@@ -214,9 +223,15 @@ const Signup = () => {
                       <Input id="member2Roll" value={form.member2Roll} onChange={(e) => update("member2Roll", e.target.value)} className="bg-background border-border mt-1" required />
                     </div>
                   </div>
-                  <div>
-                    <Label htmlFor="member2Email">Email ID</Label>
-                    <Input id="member2Email" type="email" value={form.member2Email} onChange={(e) => update("member2Email", e.target.value)} className="bg-background border-border mt-1" required />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="member2Email">Email ID</Label>
+                      <Input id="member2Email" type="email" value={form.member2Email} onChange={(e) => update("member2Email", e.target.value)} className="bg-background border-border mt-1" required />
+                    </div>
+                    <div>
+                      <Label htmlFor="member2Phone">Phone Number</Label>
+                      <Input id="member2Phone" type="tel" value={form.member2Phone} onChange={(e) => update("member2Phone", e.target.value)} className="bg-background border-border mt-1" required />
+                    </div>
                   </div>
                 </div>
 
@@ -236,9 +251,15 @@ const Signup = () => {
                       <Input id="member3Roll" value={form.member3Roll} onChange={(e) => update("member3Roll", e.target.value)} className="bg-background border-border mt-1" />
                     </div>
                   </div>
-                  <div>
-                    <Label htmlFor="member3Email">Email ID</Label>
-                    <Input id="member3Email" type="email" value={form.member3Email} onChange={(e) => update("member3Email", e.target.value)} className="bg-background border-border mt-1" />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="member3Email">Email ID</Label>
+                      <Input id="member3Email" type="email" value={form.member3Email} onChange={(e) => update("member3Email", e.target.value)} className="bg-background border-border mt-1" />
+                    </div>
+                    <div>
+                      <Label htmlFor="member3Phone">Phone Number</Label>
+                      <Input id="member3Phone" type="tel" value={form.member3Phone} onChange={(e) => update("member3Phone", e.target.value)} className="bg-background border-border mt-1" />
+                    </div>
                   </div>
                 </div>
               </>
@@ -268,10 +289,7 @@ const Signup = () => {
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <Label>Department</Label>
-                      <Select value={form.department} onValueChange={(v) => update("department", v)}>
-                        <SelectTrigger className="bg-background border-border mt-1"><SelectValue placeholder="Select" /></SelectTrigger>
-                        <SelectContent>{departments.map((d) => <SelectItem key={d} value={d}>{d}</SelectItem>)}</SelectContent>
-                      </Select>
+                      <Input id="department" value={form.department} onChange={(e) => update("department", e.target.value)} className="bg-background border-border mt-1" required placeholder="Ex: CSE, ECE, IT..." />
                     </div>
                     <div>
                       <Label>{isBootcamp ? "Course" : "Year of Study"}</Label>

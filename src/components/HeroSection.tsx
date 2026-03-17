@@ -25,6 +25,31 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
 
+      {/* Official Logos — Top Left */}
+      <div className="absolute top-20 left-4 sm:left-6 md:left-8 z-20 flex items-center gap-3 md:gap-5">
+        <img
+          src="/meity-logo.png"
+          alt="MeitY - Ministry of Electronics and Information Technology"
+          className="h-14 sm:h-16 md:h-20 w-auto object-contain brightness-110 contrast-110 drop-shadow-lg"
+          style={{ maxWidth: '200px' }}
+        />
+        <img
+          src="/isea-logo.jpg"
+          alt="ISEA Logo"
+          className="h-14 sm:h-16 md:h-20 w-auto object-contain brightness-110 drop-shadow-lg rounded-full"
+          style={{ maxWidth: '110px' }}
+        />
+      </div>
+
+      {/* JNTUK Logo — Top Right */}
+      <div className="absolute top-20 right-4 sm:right-6 md:right-8 z-20 flex items-center">
+        <img
+          src="/jntuk-logo.png"
+          alt="JNTUK - Jawaharlal Nehru Technological University Kakinada"
+          className="h-14 sm:h-16 md:h-20 w-auto object-contain brightness-110 contrast-110 drop-shadow-lg"
+          style={{ maxWidth: '110px' }}
+        />
+      </div>
 
       <div className="container mx-auto px-4 relative z-10 text-center pt-20">
         <motion.div

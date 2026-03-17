@@ -9,9 +9,9 @@ const faqs = [
   { q: "Is there a registration fee?", a: "No, the event is free of cost as it is organized under the ISEA Project Phase-III government initiative." },
   { q: "Do I need prior cybersecurity experience?", a: "No prior experience is required for the bootcamp. The hackathon is suitable for participants with basic to intermediate knowledge." },
   { q: "Can I participate in both the bootcamp and hackathon?", a: "Yes! We encourage participants to attend the bootcamp sessions and also compete in the CTF hackathon." },
-  { q: "What should I bring?", a: "Bring your own laptop with at least 8GB RAM. You'll need it for virtual labs and the hackathon. We'll provide all software and lab materials." },
+  { q: "What should I bring?", a: "Computers will be provided by us for the hackathon. However, you can bring your own laptop and chargers if you prefer." },
   { q: "How are hackathon teams formed?", a: "Teams must have 2-3 members. You can form your own team or we can help you find teammates during the event." },
-  { q: "Will certificates be provided?", a: "Yes, all bootcamp attendees will receive participation certificates. Hackathon winners receive additional achievement certificates." },
+  { q: "Will certificates be provided?", a: "Yes, all bootcamp and hackathon attendees will receive participation certificates. Hackathon winners will receive additional achievement certificates." },
   { q: "Is there a limit on bootcamp participants?", a: "Yes, the bootcamp is limited to 200 participants on a first-come, first-served basis. Register early!" },
 ];
 

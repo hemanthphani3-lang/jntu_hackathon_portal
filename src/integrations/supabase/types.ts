@@ -29,12 +29,15 @@ export type Database = {
           team_name: string | null
           team_lead_name: string | null
           team_lead_email: string | null
+          team_lead_phone: string | null
           team_lead_roll: string | null
           member2_name: string | null
           member2_email: string | null
+          member2_phone: string | null
           member2_roll: string | null
           member3_name: string | null
           member3_email: string | null
+          member3_phone: string | null
           member3_roll: string | null
           password: string | null
         }
@@ -52,12 +55,15 @@ export type Database = {
           team_name?: string | null
           team_lead_name?: string | null
           team_lead_email?: string | null
+          team_lead_phone?: string | null
           team_lead_roll?: string | null
           member2_name?: string | null
           member2_email?: string | null
+          member2_phone?: string | null
           member2_roll?: string | null
           member3_name?: string | null
           member3_email?: string | null
+          member3_phone?: string | null
           member3_roll?: string | null
           password?: string | null
         }
@@ -75,12 +81,15 @@ export type Database = {
           team_name?: string | null
           team_lead_name?: string | null
           team_lead_email?: string | null
+          team_lead_phone?: string | null
           team_lead_roll?: string | null
           member2_name?: string | null
           member2_email?: string | null
+          member2_phone?: string | null
           member2_roll?: string | null
           member3_name?: string | null
           member3_email?: string | null
+          member3_phone?: string | null
           member3_roll?: string | null
           password?: string | null
         }

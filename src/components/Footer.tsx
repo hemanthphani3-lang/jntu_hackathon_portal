@@ -34,7 +34,8 @@ const Footer = () => (
           <div className="space-y-2 text-sm text-muted-foreground">
             <p>Alumni Auditorium, JNTUK</p>
             <p>Andhra Pradesh, India</p>
-            <p>nghsb2026@jntuk.edu.in</p>
+            <p>Phone: +91 9515790099</p>
+            <p>iseaprojectphaseiii@gmail.com</p>
           </div>
         </div>
       </div>

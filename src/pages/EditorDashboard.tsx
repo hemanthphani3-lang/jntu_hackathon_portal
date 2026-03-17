@@ -107,12 +107,15 @@ const EditorDashboard = () => {
         });
       } else {
         console.log("Delete successful. Rows removed:", data.length);
+        // Optimistic update
+        setHackathonTeams(prev => prev.filter(t => t.id !== deletingId));
+        setBootcampParticipants(prev => prev.filter(p => p.id !== deletingId));
         toast({ title: "Deleted", description: "Registration removed successfully." });
       }
       
       setIsDeleteModalOpen(false);
       setDeletingId(null);
-      fetchAllData();
+      await fetchAllData();
     } catch (error: any) {
       console.error("Delete exception:", error);
       toast({ title: "Delete failed", description: error.message, variant: "destructive" });

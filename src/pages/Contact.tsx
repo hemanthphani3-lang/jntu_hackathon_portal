@@ -40,15 +40,13 @@ const Contact = () => {
             <div className="surface-card p-6 flex items-start gap-4">
               <Mail className="h-5 w-5 text-primary shrink-0 mt-0.5" />
               <div>
-                <h3 className="font-display font-semibold text-foreground mb-1">Email</h3>
-                <p className="text-sm text-muted-foreground">nghsb2026@jntuk.edu.in</p>
+                <p className="text-sm text-muted-foreground">iseaprojectphaseiii@gmail.com</p>
               </div>
             </div>
             <div className="surface-card p-6 flex items-start gap-4">
               <Phone className="h-5 w-5 text-primary shrink-0 mt-0.5" />
               <div>
-                <h3 className="font-display font-semibold text-foreground mb-1">Phone</h3>
-                <p className="text-sm text-muted-foreground">+91 884 230 0000</p>
+                <p className="text-sm text-muted-foreground">+91 9515790099</p>
               </div>
             </div>
           </div>

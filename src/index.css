@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 12% 3.5%;
+    --foreground: 210 40% 98%;
+
+    --card: 240 7% 9.4%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 240 7% 9.4%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 184 100% 50%;
+    --primary-foreground: 240 12% 3.5%;
+
+    --secondary: 267 100% 50%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 240 5% 14%;
+    --muted-foreground: 215 16% 62%;
+
+    --accent: 267 100% 50%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --success: 142 71% 45%;
+    --success-foreground: 240 12% 3.5%;
+
+    --border: 240 5% 18%;
+    --input: 240 5% 18%;
+    --ring: 184 100% 50%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 240 7% 9.4%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 184 100% 50%;
+    --sidebar-primary-foreground: 240 12% 3.5%;
+    --sidebar-accent: 240 5% 14%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 240 5% 18%;
+    --sidebar-ring: 184 100% 50%;
+
+    --surface: 240 7% 9.4%;
+    --cyber-blue: 184 100% 50%;
+    --electric-purple: 267 100% 50%;
+    --terminal-green: 142 71% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .text-gradient-cyber {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 20px hsl(184 100% 50% / 0.3), 0 0 60px hsl(184 100% 50% / 0.1);
+  }
+
+  .glow-secondary {
+    box-shadow: 0 0 20px hsl(267 100% 50% / 0.3), 0 0 60px hsl(267 100% 50% / 0.1);
+  }
+
+  .border-glow {
+    border: 1px solid hsl(184 100% 50% / 0.3);
+  }
+
+  .surface-card {
+    @apply bg-card border border-border rounded-lg;
+  }
+
+  .circuit-pattern {
+    background-image: 
+      radial-gradient(circle at 25% 25%, hsl(184 100% 50% / 0.03) 1px, transparent 1px),
+      radial-gradient(circle at 75% 75%, hsl(267 100% 50% / 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.animate-scan {
+  animation: scan-line 3s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}

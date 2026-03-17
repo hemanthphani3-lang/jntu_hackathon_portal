@@ -13,6 +13,7 @@ const Login = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const [form, setForm] = useState({ email: "", password: "" });
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleGoogleLogin = async () => {
     try {
@@ -32,31 +33,60 @@ const Login = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
     
-    // Hackathon Admin check
-    if (form.email === "admin@1234" && form.password === "admin@1234") {
-      toast({ title: "Hackathon Admin Login Successful!", description: "Redirecting to hackathon dashboard..." });
-      navigate("/admin?type=hackathon");
-      return;
-    }
+    try {
+      // Hackathon Admin check
+      if (form.email === "admin@1234" && form.password === "admin@1234") {
+        toast({ title: "Hackathon Admin Login Successful!", description: "Redirecting to hackathon dashboard..." });
+        navigate("/admin?type=hackathon");
+        return;
+      }
 
-    // Bootcamp Admin check
-    if (form.email === "admin@123" && form.password === "admin@123") {
-      toast({ title: "Bootcamp Admin Login Successful!", description: "Redirecting to bootcamp dashboard..." });
-      navigate("/admin?type=bootcamp");
-      return;
-    }
+      // Bootcamp Admin check
+      if (form.email === "admin@123" && form.password === "admin@123") {
+        toast({ title: "Bootcamp Admin Login Successful!", description: "Redirecting to bootcamp dashboard..." });
+        navigate("/admin?type=bootcamp");
+        return;
+      }
 
-    // Editor check
-    if (form.email === "edit@123" && form.password === "edit@123") {
-      toast({ title: "Editor Login Successful!", description: "Redirecting to editor dashboard..." });
-      navigate("/editor");
-      return;
-    }
+      // Editor check
+      if (form.email === "edit@123" && form.password === "edit@123") {
+        toast({ title: "Editor Login Successful!", description: "Redirecting to editor dashboard..." });
+        navigate("/editor");
+        return;
+      }
 
-    toast({ title: "Login functionality", description: "Backend auth will be connected next." });
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: form.email,
+        password: form.password,
+      });
+
+      if (error) throw error;
+
+      toast({ 
+        title: "Login Successful!", 
+        description: "Welcome back to Cyber Secure Hub." 
+      });
+      
+      navigate("/");
+    } catch (error: any) {
+      let description = error.message;
+      
+      if (description.includes("Email not confirmed")) {
+        description = "Please check your email inbox (and spam) to confirm your account before logging in. If you're testing locally, you can disable email confirmation in your Supabase Auth settings.";
+      }
+
+      toast({ 
+        title: "Login Failed", 
+        description: description,
+        variant: "destructive"
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

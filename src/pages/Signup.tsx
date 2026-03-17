@@ -58,9 +58,25 @@ const Signup = () => {
       const { data, error } = await supabase.auth.signUp({
         email: form.email,
         password: form.password,
+        options: {
+          emailRedirectTo: window.location.origin,
+        },
       });
 
       if (error) throw error;
+
+      // Auto-fill the registrations table so the user appears in the Dashboard
+      const { error: dbError } = await (supabase as any)
+        .from('registrations')
+        .insert([{
+          email: form.email,
+          full_name: "New User",
+          intent: "general"
+        }]);
+      
+      if (dbError) {
+        console.error("Database auto-fill error:", dbError);
+      }
 
       toast({ 
         title: "Account created!", 

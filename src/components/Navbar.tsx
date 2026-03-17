@@ -102,9 +102,9 @@ const Navbar = () => {
               key={link.href}
               to={link.href}
               onClick={() => setMobileOpen(false)}
-              className={`block px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+              className={`block px-4 py-4 text-base font-medium transition-colors border-b border-white/5 last:border-0 ${
                 location.pathname === link.href
-                  ? "text-primary bg-primary/10"
+                  ? "text-primary bg-primary/5"
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >

@@ -25,33 +25,33 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
 
-      {/* Official Logos — Top Left */}
-      <div className="absolute top-20 left-4 sm:left-6 md:left-8 z-20 flex items-center gap-3 md:gap-5">
-        <img
-          src="/meity-logo.png"
-          alt="MeitY - Ministry of Electronics and Information Technology"
-          className="h-14 sm:h-16 md:h-20 w-auto object-contain brightness-110 contrast-110 drop-shadow-lg"
-          style={{ maxWidth: '200px' }}
-        />
-        <img
-          src="/isea-logo.jpg"
-          alt="ISEA Logo"
-          className="h-14 sm:h-16 md:h-20 w-auto object-contain brightness-110 drop-shadow-lg rounded-full"
-          style={{ maxWidth: '110px' }}
-        />
-      </div>
+      <div className="container mx-auto px-4 relative z-10 text-center pt-24 md:pt-32">
+        {/* Official Logos Container */}
+        <div className="relative md:absolute md:top-0 left-0 right-0 z-20 flex flex-wrap justify-center md:justify-between items-center gap-6 md:gap-0 max-w-7xl mx-auto mb-10 md:mb-0">
+          {/* Left Logos (MeitY & ISEA) */}
+          <div className="flex items-center gap-4 md:gap-5">
+            <img
+              src="/meity-logo.png"
+              alt="MeitY"
+              className="h-10 sm:h-12 md:h-16 lg:h-20 w-auto object-contain brightness-110 drop-shadow-lg"
+            />
+            <img
+              src="/isea-logo.jpg"
+              alt="ISEA"
+              className="h-10 sm:h-12 md:h-16 lg:h-20 w-auto object-contain brightness-110 drop-shadow-lg rounded-full"
+            />
+          </div>
 
-      {/* JNTUK Logo — Top Right */}
-      <div className="absolute top-20 right-4 sm:right-6 md:right-8 z-20 flex items-center">
-        <img
-          src="/jntuk-logo.png"
-          alt="JNTUK - Jawaharlal Nehru Technological University Kakinada"
-          className="h-14 sm:h-16 md:h-20 w-auto object-contain brightness-110 contrast-110 drop-shadow-lg"
-          style={{ maxWidth: '110px' }}
-        />
-      </div>
+          {/* Right Logo (JNTUK) */}
+          <div className="flex items-center">
+            <img
+              src="/jntuk-logo.png"
+              alt="JNTUK"
+              className="h-10 sm:h-12 md:h-16 lg:h-20 w-auto object-contain brightness-110 drop-shadow-lg"
+            />
+          </div>
+        </div>
 
-      <div className="container mx-auto px-4 relative z-10 text-center pt-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

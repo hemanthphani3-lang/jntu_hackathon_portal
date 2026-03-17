@@ -69,8 +69,8 @@ const Speakers = () => (
               className="surface-card p-8 flex flex-col items-center text-center group hover:border-primary/50 transition-all duration-300"
             >
               <div className="relative group/img mb-8">
-                <div className="absolute -inset-1.5 bg-gradient-to-r from-primary to-secondary rounded-[2rem] blur opacity-20 group-hover/img:opacity-40 transition duration-500"></div>
-                <div className="relative w-48 h-48 rounded-[2rem] overflow-hidden bg-card/50 border border-primary/20 flex items-center justify-center p-2">
+                <div className="absolute -inset-1.5 bg-gradient-to-r from-primary to-secondary rounded-3xl sm:rounded-[2rem] blur opacity-20 group-hover/img:opacity-40 transition duration-500"></div>
+                <div className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-3xl sm:rounded-[2rem] overflow-hidden bg-card/50 border border-primary/20 flex items-center justify-center p-2">
                   {speaker.image ? (
                     <img 
                       src={speaker.image} 

@@ -11,7 +11,7 @@ const navLinks = [
   { label: "Prizes", href: "/prizes" },
   { label: "Speakers", href: "/speakers" },
   { label: "Committee", href: "/committee" },
-  { label: "Program Co-ordinator", href: "/coordinator" },
+  { label: "Program Organizer", href: "/organizer" },
   { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
 ];

@@ -25,7 +25,7 @@ const ProgramCoordinator = () => (
             <span className="text-sm font-medium text-secondary">Leadership</span>
           </div>
           <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-7xl text-foreground mb-6 leading-tight">
-            Program <span className="text-gradient-cyber">Co-ordinator</span>
+            Program <span className="text-gradient-cyber">Organizer</span>
           </h1>
         </motion.div>
         

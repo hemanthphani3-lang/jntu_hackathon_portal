@@ -10,6 +10,7 @@ import Speakers from "./pages/Speakers.tsx";
 import Committee from "./pages/Committee.tsx";
 import FAQ from "./pages/FAQ.tsx";
 import Contact from "./pages/Contact.tsx";
+import ProgramCoordinator from "./pages/ProgramCoordinator.tsx";
 import RegistrationOptions from "./pages/RegistrationOptions.tsx";
 import Login from "./pages/Login.tsx";
 import AdminDashboard from "./pages/AdminDashboard.tsx";
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/prizes" element={<Prizes />} />
           <Route path="/speakers" element={<Speakers />} />
           <Route path="/committee" element={<Committee />} />
+          <Route path="/coordinator" element={<ProgramCoordinator />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/register" element={<RegistrationOptions />} />

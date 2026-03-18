@@ -11,7 +11,6 @@ import Committee from "./pages/Committee.tsx";
 import FAQ from "./pages/FAQ.tsx";
 import Contact from "./pages/Contact.tsx";
 import RegistrationOptions from "./pages/RegistrationOptions.tsx";
-import Signup from "./pages/Signup.tsx";
 import Login from "./pages/Login.tsx";
 import AdminDashboard from "./pages/AdminDashboard.tsx";
 import EditorDashboard from "./pages/EditorDashboard.tsx";
@@ -38,7 +37,6 @@ const App = () => (
           <Route path="/faq" element={<FAQ />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/register" element={<RegistrationOptions />} />
-          <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/editor" element={<EditorDashboard />} />

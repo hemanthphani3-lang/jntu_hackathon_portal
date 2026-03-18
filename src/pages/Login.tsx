@@ -98,10 +98,6 @@ const Login = () => {
             <h1 className="font-display font-bold text-3xl text-foreground mb-2">
               Welcome <span className="text-primary">Back</span>
             </h1>
-            <p className="text-sm text-muted-foreground">
-              Don't have an account?{" "}
-              <Link to="/signup" className="text-primary hover:underline">Sign Up</Link>
-            </p>
           </div>
 
           <form onSubmit={handleSubmit} className="surface-card p-6 space-y-4">

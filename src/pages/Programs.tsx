@@ -39,13 +39,13 @@ const Programs = () => {
       <ScanningOverlay 
         isVisible={showHackathonScan} 
         logoSrc="/hackathon-logo.png" 
-        onComplete={() => navigate("/signup?intent=hackathon")} 
+        onComplete={() => navigate("/register")} 
         title="Accessing Hackathon Infrastructure..."
       />
       <ScanningOverlay 
         isVisible={showBootcampScan} 
         logoSrc="/bootcamp-logo.png" 
-        onComplete={() => navigate("/signup?intent=bootcamp")} 
+        onComplete={() => navigate("/register")} 
         title="Synchronizing Bootcamp Curricula..."
         variant="training"
       />

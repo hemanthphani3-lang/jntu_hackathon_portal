@@ -506,77 +506,34 @@ const RegistrationOptions = () => {
               <p className="text-muted-foreground">Join the ISEA Cyber Security training program.</p>
             </div>
 
-            <div className="space-y-5">
-              <div className="space-y-2">
-                <Label htmlFor="full_name">Full Name</Label>
-                <Input 
-                  id="full_name"
-                  value={bootcampData.full_name}
-                  onChange={(e) => setBootcampData({...bootcampData, full_name: e.target.value})}
-                  className="bg-background/50 border-border"
+            <div className="flex flex-col items-center space-y-6">
+              <div className="p-4 bg-white rounded-xl shadow-lg border-4 border-primary/20">
+                <img 
+                  src="/bootcamp-qr.png" 
+                  alt="Bootcamp Registration QR" 
+                  className="w-48 h-48 object-contain"
                 />
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <div className="space-y-2">
-                  <Label htmlFor="roll_number">Roll Number</Label>
-                  <Input 
-                    id="roll_number"
-                    value={bootcampData.roll_number}
-                    onChange={(e) => setBootcampData({...bootcampData, roll_number: e.target.value})}
-                    className="bg-background/50 border-border"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number</Label>
-                  <Input 
-                    id="phone"
-                    value={bootcampData.phone}
-                    onChange={(e) => setBootcampData({...bootcampData, phone: e.target.value})}
-                    className="bg-background/50 border-border"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="course">Course</Label>
-                  <Input 
-                    id="course"
-                    placeholder="e.g. B.Tech"
-                    value={bootcampData.course}
-                    onChange={(e) => setBootcampData({...bootcampData, course: e.target.value})}
-                    className="bg-background/50 border-border"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="dept">Department</Label>
-                  <Input 
-                    id="dept"
-                    placeholder="e.g. CSE"
-                    value={bootcampData.department}
-                    onChange={(e) => setBootcampData({...bootcampData, department: e.target.value})}
-                    className="bg-background/50 border-border"
-                  />
-                </div>
+              
+              <div className="text-center space-y-3">
+                <p className="text-sm text-foreground/80">Scan the QR code or click the button below to fill out the official registration form.</p>
+                <div className="h-px bg-border/50 w-full max-w-[200px] mx-auto" />
               </div>
 
-              <div className="flex flex-col gap-3 pt-6">
-                <Button variant="cyber" className="w-full py-6 text-lg" onClick={async () => {
-                  try {
-                    const { error } = await (supabase as any)
-                      .from('registrations')
-                      .insert([{
-                        ...bootcampData,
-                        email: user?.email,
-                        intent: 'bootcamp'
-                      }]);
-                    if (error) throw error;
-                    toast({ title: "Bootcamp Registration Successful!", description: "You have been enrolled." });
-                    setIsBootcampFormOpen(false);
-                    checkExistingRegistrations();
-                  } catch (error: any) {
-                    toast({ title: "Registration Failed", description: error.message, variant: "destructive" });
-                  }
-                }}>Confirm Enrollment</Button>
-                <Button variant="ghost" onClick={() => setIsBootcampFormOpen(false)} className="text-muted-foreground hover:text-foreground">Cancel</Button>
+              <div className="flex flex-col gap-3 w-full">
+                <a 
+                  href="https://forms.gle/d4ArvzUgTSKZgg1H7" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-full"
+                >
+                  <Button variant="cyber" className="w-full py-6 text-lg">
+                    Open Official Form
+                  </Button>
+                </a>
+                <Button variant="ghost" onClick={() => setIsBootcampFormOpen(false)} className="text-muted-foreground hover:text-foreground">
+                  Cancel
+                </Button>
               </div>
             </div>
           </div>

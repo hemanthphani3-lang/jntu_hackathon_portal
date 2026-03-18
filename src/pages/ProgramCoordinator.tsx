@@ -56,7 +56,7 @@ const ProgramCoordinator = () => (
             </div>
             
             {/* Coordinator Details */}
-            <div className="flex flex-col flex-grow justify-center pt-4 md:pt-8 z-10">
+            <div className="flex flex-col flex-grow z-10">
               <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-3 group-hover:text-secondary transition-colors duration-300">
                 {coordinator.name}
               </h3>

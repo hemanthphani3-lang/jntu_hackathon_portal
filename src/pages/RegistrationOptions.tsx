@@ -375,119 +375,44 @@ const RegistrationOptions = () => {
 
       {/* Hackathon Form Dialog */}
       <Dialog open={isHackathonFormOpen} onOpenChange={setIsHackathonFormOpen}>
-        <DialogContent className="max-w-2xl bg-card border-border overflow-y-auto max-h-[90vh] p-0 border-none shadow-2xl">
+        <DialogContent className="max-w-xl bg-card border-border overflow-y-auto max-h-[90vh] p-0 border-none shadow-2xl">
           <div className="surface-card p-8 md:p-12 space-y-8">
             <div className="text-center space-y-2">
               <img src="/hackathon-logo.png" alt="Hackathon" className="h-16 w-16 mx-auto mb-4 object-contain" />
               <h2 className="font-display font-bold text-3xl text-foreground">
                 Hackathon <span className="text-secondary">Registration</span>
               </h2>
-              <p className="text-muted-foreground">Complete your team credentials for the CTF challenge.</p>
+              <p className="text-muted-foreground">Complete your team registration for the CTF challenge.</p>
             </div>
 
-            <div className="space-y-6">
-              <div className="space-y-2">
-                <Label htmlFor="team_name">Team Name</Label>
-                <Input 
-                  id="team_name"
-                  placeholder="Enter a unique team name"
-                  value={hackathonData.team_name}
-                  onChange={(e) => setHackathonData({...hackathonData, team_name: e.target.value})}
-                  className="bg-background/50 border-border"
+            <div className="flex flex-col items-center space-y-6">
+              <div className="p-4 bg-white rounded-xl shadow-lg border-4 border-secondary/20">
+                <img 
+                  src="/hackathon-qr.png" 
+                  alt="Hackathon Registration QR" 
+                  className="w-48 h-48 object-contain"
                 />
               </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <Label htmlFor="lead_name">Team Lead Name</Label>
-                  <Input 
-                    id="lead_name"
-                    value={hackathonData.team_lead_name}
-                    onChange={(e) => setHackathonData({...hackathonData, team_lead_name: e.target.value})}
-                    className="bg-background/50 border-border"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="lead_roll">Team Lead Roll No.</Label>
-                  <Input 
-                    id="lead_roll"
-                    value={hackathonData.team_lead_roll}
-                    onChange={(e) => setHackathonData({...hackathonData, team_lead_roll: e.target.value})}
-                    className="bg-background/50 border-border"
-                  />
-                </div>
+              
+              <div className="text-center space-y-3">
+                <p className="text-sm text-foreground/80">Scan the QR code or click the button below to fill out the official registration form.</p>
+                <div className="h-px bg-border/50 w-full max-w-[200px] mx-auto" />
               </div>
 
-              <div className="relative py-2">
-                <div className="absolute inset-0 flex items-center"><span className="w-full border-t border-border/50"></span></div>
-                <div className="relative flex justify-center text-[10px] uppercase tracking-widest text-muted-foreground bg-card px-2">Squad Members</div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pb-4">
-                <div className="space-y-4">
-                  <p className="text-xs font-bold text-secondary uppercase">Member 2</p>
-                  <Input 
-                    placeholder="Full Name" 
-                    value={hackathonData.member2_name}
-                    onChange={(e) => setHackathonData({...hackathonData, member2_name: e.target.value})}
-                    className="bg-background/50 border-border"
-                  />
-                  <Input 
-                    placeholder="Roll Number" 
-                    value={hackathonData.member2_roll}
-                    onChange={(e) => setHackathonData({...hackathonData, member2_roll: e.target.value})}
-                    className="bg-background/50 border-border"
-                  />
-                  <Input 
-                    placeholder="Email Address" 
-                    value={hackathonData.member2_email}
-                    onChange={(e) => setHackathonData({...hackathonData, member2_email: e.target.value})}
-                    className="bg-background/50 border-border"
-                  />
-                </div>
-                <div className="space-y-4">
-                  <p className="text-xs font-bold text-muted-foreground uppercase">Member 3 (Optional)</p>
-                  <Input 
-                    placeholder="Full Name" 
-                    value={hackathonData.member3_name}
-                    onChange={(e) => setHackathonData({...hackathonData, member3_name: e.target.value})}
-                    className="bg-background/50 border-border"
-                  />
-                  <Input 
-                    placeholder="Roll Number" 
-                    value={hackathonData.member3_roll}
-                    onChange={(e) => setHackathonData({...hackathonData, member3_roll: e.target.value})}
-                    className="bg-background/50 border-border"
-                  />
-                  <Input 
-                    placeholder="Email Address" 
-                    value={hackathonData.member3_email}
-                    onChange={(e) => setHackathonData({...hackathonData, member3_email: e.target.value})}
-                    className="bg-background/50 border-border"
-                  />
-                </div>
-              </div>
-
-              <div className="flex flex-col gap-3 pt-4">
-                <Button variant="cyber-purple" className="w-full py-6 text-lg" onClick={async () => {
-                  try {
-                    const { error } = await (supabase as any)
-                      .from('registrations')
-                      .insert([{
-                        ...hackathonData,
-                        email: user?.email,
-                        intent: 'hackathon',
-                        full_name: hackathonData.team_lead_name
-                      }]);
-                    if (error) throw error;
-                    toast({ title: "Hackathon Registration Successful!", description: "Your team has been deployed." });
-                    setIsHackathonFormOpen(false);
-                    checkExistingRegistrations();
-                  } catch (error: any) {
-                    toast({ title: "Registration Failed", description: error.message, variant: "destructive" });
-                  }
-                }}>Confirm Hackathon Entry</Button>
-                <Button variant="ghost" onClick={() => setIsHackathonFormOpen(false)} className="text-muted-foreground hover:text-foreground">Cancel</Button>
+              <div className="flex flex-col gap-3 w-full">
+                <a 
+                  href="https://forms.gle/xBByjGPuVNHcB5XE9" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-full"
+                >
+                  <Button variant="cyber-purple" className="w-full py-6 text-lg">
+                    Open Official Form
+                  </Button>
+                </a>
+                <Button variant="ghost" onClick={() => setIsHackathonFormOpen(false)} className="text-muted-foreground hover:text-foreground">
+                  Cancel
+                </Button>
               </div>
             </div>
           </div>

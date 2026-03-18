@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import { User, Award } from "lucide-react";
 
 const coordinator = {
-  name: "Program Coordinator",
-  details: "Program Coordinator, ISEA JNTUK",
-  description: "Information about the program coordinator will be updated soon. They are responsible for overseeing the successful implementation and execution of the ISEA JNTUK Bootcamp and Hackathon.",
+  name: "Program Co-ordinator",
+  details: "Program Co-ordinator, ISEA JNTUK",
+  description: "Information about the program co-ordinator will be updated soon. They are responsible for overseeing the successful implementation and execution of the ISEA JNTUK Bootcamp and Hackathon.",
   image: null // Placeholder for now
 };
 
@@ -25,7 +25,7 @@ const ProgramCoordinator = () => (
             <span className="text-sm font-medium text-secondary">Leadership</span>
           </div>
           <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-7xl text-foreground mb-6 leading-tight">
-            Program <span className="text-gradient-cyber">Coordinator</span>
+            Program <span className="text-gradient-cyber">Co-ordinator</span>
           </h1>
         </motion.div>
         

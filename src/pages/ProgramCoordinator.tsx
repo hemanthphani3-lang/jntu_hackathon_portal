@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 import { User, Award } from "lucide-react";
 
 const coordinator = {
-  name: "Program Co-ordinator",
-  details: "Program Co-ordinator, ISEA JNTUK",
-  description: "Information about the program co-ordinator will be updated soon. They are responsible for overseeing the successful implementation and execution of the ISEA JNTUK Bootcamp and Hackathon.",
-  image: null // Placeholder for now
+  name: "Dr. K. V Ramana",
+  details: "Senior Professor of CSE at UCEK, JNTU Kakinada",
+  description: "Principal Investigator ISEA Project Phase - III. Dr. Ramana oversees the strategic direction and academic excellence of the Cybersecurity programs, ensuring that the ISEA JNTUK Bootcamp and Hackathon meet the highest industry standards for training and competition.",
+  image: "/Dr_KV_Ramana.jpg"
 };
 
 const ProgramCoordinator = () => (
